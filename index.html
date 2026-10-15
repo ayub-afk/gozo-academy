@@ -1,0 +1,233 @@
+<title>Gozo</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Gozo builds ventures with the icons of sport and entertainment. India and the Middle East first.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: single column, hairline-ruled sections, numerals and eyebrows in mono, one yellow tile per page. Lifted from the Gozo deck system. */
+:root{
+  --bg:#EDEDED; --fg:#000000; --muted:#737373; --rule:#000000; --rule-soft:#B5B5B5;
+  --tile:#FFFFFF; --ink:#000000; --ink-fg:#FFFFFF; --accent:#F5F85D; --accent-fg:#000000; --champagne:#B7A17C;
+  --sans:'Geist',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
+  --mono:'Geist Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#111111; --fg:#F2F2F2; --muted:#9A9A9A; --rule:#F2F2F2; --rule-soft:#3A3A3C;
+    --tile:#1C1C1E; --ink:#F2F2F2; --ink-fg:#111111; --accent:#F5F85D; --accent-fg:#000000; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#111111; --fg:#F2F2F2; --muted:#9A9A9A; --rule:#F2F2F2; --rule-soft:#3A3A3C;
+  --tile:#1C1C1E; --ink:#F2F2F2; --ink-fg:#111111; --accent:#F5F85D; --accent-fg:#000000; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:inherit}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:0}
+h1,h2,h3{text-wrap:balance;margin:0;letter-spacing:-.02em;line-height:1.05;font-weight:700}
+h2{font-size:clamp(32px,4.5vw,56px)}
+h3{font-size:22px;letter-spacing:-.01em;line-height:1.2}
+p{margin:0}
+.lede{font-size:clamp(18px,1.6vw,22px);line-height:1.45;max-width:38em;font-weight:500}
+.muted{color:var(--muted)}
+
+/* nav */
+nav{border-bottom:1px solid var(--rule)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:22px}
+.wordmark{font-weight:700;font-size:26px;letter-spacing:-.04em;text-decoration:none}
+nav ul{list-style:none;margin:0;padding:0;display:flex;gap:28px;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+nav ul a{text-decoration:none;color:var(--muted)}
+nav ul a:hover,nav ul a:focus-visible{color:var(--fg)}
+@media (max-width:640px){nav ul{display:none}}
+
+/* hero */
+.hero .wrap{padding-block:88px 72px;display:grid;grid-template-columns:1fr;gap:40px}
+.hero h1{font-size:clamp(44px,7.2vw,104px);max-width:14ch}
+.hero-foot{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--rule)}
+.hero-foot div{padding:20px 24px 20px 0;border-right:1px solid var(--rule-soft);min-width:0}
+.hero-foot div+div{padding-left:24px}
+.hero-foot div:last-child{border-right:0}
+.hero-foot p:last-child{font-weight:500;margin-top:6px}
+@media (max-width:640px){.hero-foot{grid-template-columns:1fr}.hero-foot div{border-right:0;border-bottom:1px solid var(--rule-soft);padding-left:0}.hero-foot div:last-child{border-bottom:0}}
+
+/* sections */
+section{border-top:1px solid var(--rule)}
+section .wrap{padding-block:72px}
+.head{display:grid;grid-template-columns:1fr;gap:16px;margin-bottom:44px}
+@media (min-width:860px){.head{grid-template-columns:1fr 2fr;gap:48px;align-items:end}.head .lede{justify-self:start}}
+
+/* model list */
+.rows{display:flex;flex-direction:column}
+.row{display:grid;grid-template-columns:64px 1fr;gap:24px;padding-block:26px;border-top:1px solid var(--rule-soft)}
+.row:last-child{border-bottom:1px solid var(--rule)}
+.row .n{font-family:var(--mono);font-size:14px;color:var(--muted);padding-top:6px}
+.row h3{margin-bottom:8px}
+.row p{max-width:62ch}
+@media (min-width:860px){.row{grid-template-columns:64px 280px 1fr}.row h3{margin:0}}
+
+/* tiles */
+.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:44px}
+.tile{padding:28px 24px;min-width:0;display:flex;flex-direction:column;gap:10px}
+.tile.ink{background:var(--ink);color:var(--ink-fg)}
+.tile.white{background:var(--tile)}
+.tile.acc{background:var(--accent);color:var(--accent-fg)}
+.tile .big{font-size:clamp(40px,5vw,64px);font-weight:700;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+.tile .lab{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase}
+.tile.ink .lab{color:var(--ink-fg)}
+@media (max-width:640px){.tiles{grid-template-columns:1fr}}
+
+/* uno */
+.uno{display:grid;grid-template-columns:1fr;gap:40px}
+@media (min-width:860px){.uno{grid-template-columns:1fr 1fr;gap:64px}}
+.uno ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column}
+.uno li{padding-block:16px;border-top:1px solid var(--rule-soft);display:grid;grid-template-columns:150px 1fr;gap:16px;font-weight:500}
+.uno li:last-child{border-bottom:1px solid var(--rule)}
+.uno li span:first-child{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding-top:4px}
+@media (max-width:480px){.uno li{grid-template-columns:1fr;gap:4px}}
+
+/* work with us */
+.cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--rule)}
+.col{padding:28px 28px 28px 0;border-right:1px solid var(--rule-soft);min-width:0;display:flex;flex-direction:column;gap:12px}
+.col+.col{padding-left:28px}
+.col:last-child{border-right:0}
+.col p{max-width:40ch}
+@media (max-width:860px){.cols{grid-template-columns:1fr}.col{border-right:0;border-bottom:1px solid var(--rule-soft);padding-left:0}.col:last-child{border-bottom:0}}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1fr;gap:28px}
+@media (min-width:860px){.contact{grid-template-columns:1fr 1fr;gap:64px;align-items:start}}
+.mail{display:inline-flex;align-items:center;gap:14px;font-size:clamp(22px,2.6vw,34px);font-weight:700;letter-spacing:-.02em;background:var(--accent);color:var(--accent-fg);padding:14px 20px;text-decoration:none;word-break:break-all}
+.copy{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;background:transparent;border:1px solid var(--accent-fg);color:var(--accent-fg);padding:8px 12px;cursor:pointer}
+.copy:focus-visible,.mail:focus-visible,nav a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.contact dl{margin:0;display:grid;grid-template-columns:140px 1fr;gap:12px 16px;font-weight:500}
+.contact dt{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding-top:4px}
+.contact dd{margin:0}
+
+footer{border-top:1px solid var(--rule)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:28px;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+@media (prefers-reduced-motion:no-preference){.copy{transition:background .15s}}
+</style>
+
+<nav>
+  <div class="wrap">
+    <a class="wordmark" href="#top">GOZO</a>
+    <ul>
+      <li><a href="#model">The model</a></li>
+      <li><a href="#uno">Project Uno</a></li>
+      <li><a href="#partners">Work with us</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Sports and entertainment venture builder · Dubai and India</p>
+    <h1>We build ventures with the icons of sport and entertainment.</h1>
+    <p class="lede">Gozo partners with athletes, coaches and creators to build businesses they own a share of: academies, consumer brands, content properties and licensing programmes. We operate them on the ground, starting in India and the Middle East.</p>
+    <div class="hero-foot">
+      <div><p class="eyebrow">Established</p><p>2026, Dubai</p></div>
+      <div><p class="eyebrow">First project</p><p>Campus Xavi, with Xavi Hernández</p></div>
+      <div><p class="eyebrow">First programmes</p><p>Punjab and Dubai, late 2026</p></div>
+    </div>
+  </div>
+</header>
+
+<section id="model">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">The model</p>
+      <p class="lede">An icon is a brand with an audience and a network. Most of them never extend that brand into a business, because nobody capable stands beside them in the markets where the audience lives. Gozo is that partner. One icon, one project, one network at a time.</p>
+    </div>
+    <div class="rows">
+      <div class="row"><p class="n">01</p><h3>Camps and immersions</h3><p>Coaching and training programmes built on an icon's methodology, delivered through schools, venues and anchor partners, with travel programmes to the source.</p></div>
+      <div class="row"><p class="n">02</p><h3>Licensing</h3><p>Operating manuals and curricula that partners can run under licence once the first programmes have proven the format.</p></div>
+      <div class="row"><p class="n">03</p><h3>Consumer brands</h3><p>Direct-to-consumer product brands built from scratch and co-owned with the icon, launched on marketplaces first and taken into quick commerce and retail.</p></div>
+      <div class="row"><p class="n">04</p><h3>Sponsorship and endorsement</h3><p>Commercial partnerships attached to the properties we build, structured so the icon and the brand both keep an upside.</p></div>
+      <div class="row"><p class="n">05</p><h3>Digital and content</h3><p>Podcasts, series and live formats that grow the audience each venture is built on.</p></div>
+    </div>
+    <div class="tiles">
+      <div class="tile ink"><p class="big">1</p><p class="lab">Icon per venture</p></div>
+      <div class="tile white"><p class="big">2</p><p class="lab">Markets first: India and the Middle East</p></div>
+      <div class="tile acc"><p class="big">10</p><p class="lab">Icon ventures targeted by 2028</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="uno">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Project Uno</p>
+      <h2>Campus Xavi</h2>
+    </div>
+    <div class="uno">
+      <div>
+        <p class="lede">Campus Xavi brings Xavi Hernández's coaching methodology to young players in India and the Middle East. The programmes run with his coaches, in schools and at partner venues, and the best students travel to Spain. It is the first venture Gozo has built and the template for every one that follows.</p>
+      </div>
+      <ul>
+        <li><span>Partner</span><span>Xavi Hernández</span></li>
+        <li><span>Format</span><span>Multi-day football camps and immersion programmes for ages 8 to 16</span></li>
+        <li><span>Territories</span><span>India, the UAE and the wider Middle East</span></li>
+        <li><span>Distribution</span><span>Schools, academies, foundations and venue partners</span></li>
+        <li><span>Status</span><span>First programmes in Punjab and Dubai in late 2026</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="partners">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Work with us</p>
+      <h2>Who we work with</h2>
+    </div>
+    <div class="cols">
+      <div class="col"><p class="eyebrow">Schools, academies and venues</p><h3>Host a programme</h3><p>Bring a Campus Xavi camp to your students or your venue. We handle the coaches, the curriculum and the delivery; you bring the players and the pitch.</p></div>
+      <div class="col"><p class="eyebrow">Brands and sponsors</p><h3>Partner with a property</h3><p>Attach your brand to a programme, a product or a content property with a real audience behind it, in India and the Gulf.</p></div>
+      <div class="col"><p class="eyebrow">Icons and their teams</p><h3>Build a venture</h3><p>If you have an audience and a methodology, we build and operate the business with you and you keep a share of what we build. Further partnerships in cricket and Indian cinema will be announced.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Contact</p>
+      <h2>Talk to us</h2>
+    </div>
+    <div class="contact">
+      <div>
+        <a class="mail" href="mailto:hello@gozo.academy"><span id="addr">hello@gozo.academy</span><button class="copy" type="button" id="copyBtn" aria-label="Copy email address">Copy</button></a>
+      </div>
+      <dl>
+        <dt>Offices</dt><dd>Dubai, United Arab Emirates<br>India</dd>
+        <dt>Founders</dt><dd>Zeeshan Ali and Ayub</dd>
+        <dt>Response</dt><dd>We reply within two working days.</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Gozo · gozo.academy · 2026</p>
+    <p>Dubai · India</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.getElementById('copyBtn');
+  var addr=document.getElementById('addr');
+  if(!btn||!addr)return;
+  btn.addEventListener('click',function(e){
+    e.preventDefault();e.stopPropagation();
+    var text=addr.textContent;
+    function done(){btn.textContent='Copied';setTimeout(function(){btn.textContent='Copy';},1600);}
+    function fallback(){var r=document.createRange();r.selectNodeContents(addr);var s=window.getSelection();s.removeAllRanges();s.addRange(r);}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done,fallback);}else{fallback();}
+  });
+})();
+</script>
